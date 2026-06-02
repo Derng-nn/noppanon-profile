@@ -80,10 +80,18 @@ section{
  margin-top:15px;
  max-width:600px;
  color:#94a3b8;
+ line-height:1.6;
+}
+
+/* Button & Button Group Container */
+.button-group {
+ display: flex;
+ gap: 12px;
+ margin-top: 20px;
+ flex-wrap: wrap;
 }
 
 .button{
- margin-top:20px;
  padding:12px 22px;
  border-radius:8px;
  text-decoration:none;
@@ -91,8 +99,8 @@ section{
  color:#020617;
  font-weight:600;
  transition:0.3s;
- margin-right:10px;
  display:inline-block;
+ text-align: center;
 }
 
 .button:hover{
@@ -100,14 +108,41 @@ section{
  box-shadow:0 10px 25px rgba(56,189,248,0.4);
 }
 
-h1.section-title{
+.button-secondary {
+ background: transparent;
+ color: #38bdf8;
+ border: 1px solid #38bdf8;
+}
+
+.button-secondary:hover {
+ background: rgba(56,189,248,0.1);
+}
+
+h2.section-title{
  font-size:34px;
  margin-bottom:10px;
+ color: #f8fafc;
 }
 
 .section-desc{
  color:#94a3b8;
  margin-bottom:30px;
+}
+
+/* Enhanced Skills Layout */
+.skills-container {
+ display: flex;
+ flex-direction: column;
+ gap: 20px;
+ max-width: 800px;
+}
+
+.skills-group h4 {
+ margin: 0 0 10px 0;
+ color: #38bdf8;
+ font-size: 14px;
+ text-transform: uppercase;
+ letter-spacing: 0.05em;
 }
 
 .skills{
@@ -121,20 +156,24 @@ h1.section-title{
  padding:8px 14px;
  border-radius:6px;
  font-size:13px;
+ border: 1px solid rgba(255,255,255,0.05);
 }
 
 .card-container{
  display:grid;
- grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+ grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
  gap:25px;
 }
 
 .card{
  background:#0f172a;
  border:1px solid #1e293b;
- padding:22px;
+ padding:25px;
  border-radius:12px;
  transition:0.35s;
+ display: flex;
+ flex-direction: column;
+ justify-content: space-between;
 }
 
 .card:hover{
@@ -143,9 +182,36 @@ h1.section-title{
  box-shadow:0 0 30px rgba(56,189,248,0.2);
 }
 
+.card h3 {
+ margin-top: 0;
+ font-size: 20px;
+}
+
 .card p{
  color:#94a3b8;
  font-size:14px;
+ line-height: 1.6;
+ flex-grow: 1;
+}
+
+.contact-list {
+ list-style: none;
+ padding: 0;
+}
+
+.contact-list li {
+ margin-bottom: 15px;
+ font-size: 16px;
+}
+
+.contact-list a {
+ color: #38bdf8;
+ text-decoration: none;
+ transition: 0.2s;
+}
+
+.contact-list a:hover {
+ text-decoration: underline;
 }
 
 footer{
@@ -153,12 +219,14 @@ footer{
  padding:30px;
  border-top:1px solid #1e293b;
  color:#94a3b8;
+ font-size: 14px;
 }
 
+/* Animations */
 .fade{
  opacity:0;
  transform:translateY(30px);
- transition:all 0.8s ease;
+ transition:all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .fade.show{
@@ -181,9 +249,8 @@ footer{
 </nav>
 </header>
 
-<!-- HERO -->
-<section id="home" class="hero fade">
-<img src="profile.jpg" class="profile-img">
+<section id="home" class="hero">
+<img src="profile.jpg" class="profile-img" alt="Noppanon Nobnop">
 
 <h1>Noppanon Nobnop</h1>
 <h2>AI Engineer | Biomedical Engineering</h2>
@@ -193,91 +260,97 @@ I specialize in deep learning for medical image analysis, particularly MRI tumor
 My work focuses on building AI systems that improve clinical decision-making and integrate into real-world platforms.
 </p>
 
-<div>
+<div class="button-group">
 <a class="button" href="#projects">View Projects</a>
-<a class="button" href="CV_noppanon.pdf" target="_blank">Download CV</a>
+<a class="button button-secondary" href="CV_noppanon.pdf" target="_blank">Download CV</a>
 </div>
 </section>
 
-<!-- ABOUT -->
 <section id="about" class="fade">
-<h1 class="section-title">About Me</h1>
+<h2 class="section-title">About Me</h2>
 
 <p class="section-desc">
 Experienced in developing deep learning models for medical imaging, including MRI segmentation, 
 multi-modal data processing, and AI system integration with tools like 3D Slicer.
 </p>
 
-<div class="skills">
-<div class="skill">Deep Learning</div>
-<div class="skill">TensorFlow</div>
-<div class="skill">PyTorch</div>
-<div class="skill">Computer Vision</div>
-<div class="skill">Medical Imaging</div>
-<div class="skill">MRI Analysis</div>
-<div class="skill">3D Slicer</div>
-<div class="skill">Segmentation</div>
+<div class="skills-container">
+ <div class="skills-group">
+  <h4>AI & Deep Learning</h4>
+  <div class="skills">
+   <div class="skill">Deep Learning</div>
+   <div class="skill">PyTorch</div>
+   <div class="skill">TensorFlow</div>
+   <div class="skill">Computer Vision</div>
+   <div class="skill">Segmentation</div>
+  </div>
+ </div>
+ 
+ <div class="skills-group">
+  <h4>Medical Imaging & Tools</h4>
+  <div class="skills">
+   <div class="skill">Medical Imaging</div>
+   <div class="skill">MRI Analysis</div>
+   <div class="skill">3D Slicer</div>
+  </div>
+ </div>
 </div>
 </section>
 
-<!-- PROJECTS -->
 <section id="projects" class="fade">
-<h1 class="section-title">Projects</h1>
+<h2 class="section-title">Projects</h2>
 <p class="section-desc">Selected AI and research projects</p>
 
 <div class="card-container">
 
 <div class="card">
-<h3>Bachelor's Degree Thesis</h3>
-<p>
-PELVIC TUMOR SEGMENTATION IN MAGNETIC RESONANCE IMAGES BY U-NET AND MORPHOLOGICAL OPERATION<br>
-<br>
-• Developed a U-Net-based model for pelvic tumor segmentation<br> 
-<br>
-• Applied morphological operations to refine segmentation boundaries<br>
-<br>
-• Evaluated model performance using Dice Similarity Coefficient (DSC) and IoU metrics
-</p>
-<a class="button" href="https://github.com/Derng-nn/Bachelor-s-Project/" target="_blank">GitHub</a>
+<div>
+ <h3>Bachelor's Thesis</h3>
+ <p>
+ <strong>PELVIC TUMOR SEGMENTATION IN MAGNETIC RESONANCE IMAGES BY U-NET AND MORPHOLOGICAL OPERATION</strong><br><br>
+ • Developed a U-Net-based model tailored for pelvic tumor segmentation.<br> 
+ • Applied morphological operations to post-process and refine segmentation boundaries.<br>
+ • Designed comprehensive experimental evaluations to validate model accuracy.
+ </p>
+</div>
+<div class="button-group">
+ <a class="button" href="https://github.com/Derng-nn/Bachelor-s-Project/" target="_blank" style="width: 100%;">Details</a>
+</div>
 </div>
 
 <div class="card">
-<h3>MRI Deep Learning Pipeline</h3>
-<p>
-End-to-end pipeline for preprocessing, training, and evaluation of MRI segmentation models.
-</p>
-<a class="button" href="#">GitHub</a>
+<div>
+ <h3>Master's Thesis</h3>
+ <p>
+ <strong>PELVIC TUMOR SEGMENTATION FROM MAGNETIC RESONANCE IMAGES USING U-NET WITH EDGE DETECTION TECHNIQUE</strong><br><br>
+ • Advanced the core segmentation framework by integrating edge detection techniques to enhance boundary delineation.<br> 
+ • Improved precision in capturing subtle variations of pelvic tumor margins.<br>
+ • Conducted rigorous performance evaluations against baseline methods.
+ </p>
+</div>
+<div class="button-group">
+ <a class="button" href="https://github.com/Derng-nn/Master-s-Project/" target="_blank" style="width: 100%;">Details</a>
+</div>
 </div>
 
 <div class="card">
-<h3>3D Slicer AI Extension</h3>
-
-<p>
-AI module integrated into 3D Slicer for automatic tumor segmentation inside clinical workflows.
-</p>
-
-<div class="project-buttons">
-    <a class="button"
-       href="https://github.com/Derng-nn/3D-Slicer-Extension"
-       target="_blank">
-       GitHub
-    </a>
-
-    <a class="button"
-       href="https://huggingface.co/spaces/Derng/tumor-segmentation-demo"
-       target="_blank">
-       Demo
-    </a>
+<div>
+ <h3>3D Slicer AI Extension</h3>
+ <p>
+ An AI-powered module integrated into 3D Slicer, designed for automatic pelvic tumor segmentation directly inside standard clinical workflows.
+ </p>
+</div>
+<div class="button-group" style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+    <a class="button button-secondary" href="https://github.com/Derng-nn/3D-Slicer-Extension" target="_blank">GitHub</a>
+    <a class="button" href="https://huggingface.co/spaces/Derng/tumor-segmentation-demo" target="_blank">Demo</a>
 </div>
 </div>
-
 
 </div>
 </section>
 
-<!-- PUBLICATIONS -->
 <section id="publications" class="fade">
-    <h1 class="section-title">Publications</h1>
+    <h2 class="section-title">Publications</h2>
     <p class="section-desc">
         Conference papers and ongoing research in medical image analysis and deep learning.
     </p>
@@ -285,71 +358,76 @@ AI module integrated into 3D Slicer for automatic tumor segmentation inside clin
     <div class="card-container">
 
         <div class="card">
-            <h3>Pelvic Tumor Segmentation in Magnetic Resonance Images By U-Net</h3>
-            <p>
-                N. Nobnop,
-                "Pelvic Tumor Segmentation in Magnetic Resonance Images By U-Net",
-                International Conference on Intelligent Informatics and Biomedical Sciences (ICIIBMS), 2025.
-            </p>
-
-            <a class="button"
-               href="https://doi.org/10.1109/ICIIBMS66230.2025.11316723"
-               target="_blank">
-               View Paper
-            </a>
+            <div>
+             <h3>Pelvic Tumor Segmentation in Magnetic Resonance Images By U-Net</h3>
+             <p>
+                 N. Nobnop,
+                 "Pelvic Tumor Segmentation in Magnetic Resonance Images By U-Net",
+                 <em>International Conference on Intelligent Informatics and Biomedical Sciences (ICIIBMS)</em>, 2025.
+             </p>
+            </div>
+            <div class="button-group">
+             <a class="button" href="https://doi.org/10.1109/ICIIBMS66230.2025.11316723" target="_blank" style="width: 100%;">View Paper</a>
+            </div>
         </div>
 
         <div class="card">
-            <h3>Tumor Segmentation in MRI Images using Deep Learning with DeepLabV3+ and U-Net</h3>
-            <p>
-                N. Nobnop,
-                "Tumor Segmentation in MRI Images using Deep Learning with DeepLabV3+ and U-Net",
-                16th Biomedical Engineering International Conference (BMEiCON), 2024.
-            </p>
-
-            <a class="button"
-               href="https://doi.org/10.1109/BMEiCON64021.2024.10896343"
-               target="_blank">
-               View Paper
-            </a>
+            <div>
+             <h3>Tumor Segmentation in MRI Images using Deep Learning with DeepLabV3+ and U-Net</h3>
+             <p>
+                 N. Nobnop,
+                 "Tumor Segmentation in MRI Images using Deep Learning with DeepLabV3+ and U-Net",
+                 <em>16th Biomedical Engineering International Conference (BMEiCON)</em>, 2024.
+             </p>
+            </div>
+            <div class="button-group">
+             <a class="button" href="https://doi.org/10.1109/BMEiCON64021.2024.10896343" target="_blank" style="width: 100%;">View Paper</a>
+            </div>
         </div>
 
         <div class="card">
-            <h3>Pelvic Tumor Segmentation from Multi-Modal MRI Using Three-Branch U-Net</h3>
-            <p>
-                N. Nobnop,
-                "Pelvic Tumor Segmentation from Multi-Modal MRI Using Three-Branch U-Net",
-                23rd International Joint Conference on Computer Science and Software Engineering (JCSSE 2026).
-            </p>
-
-            <p style="color:#38bdf8;font-weight:600;">
-                In Progress
-            </p>
+            <div>
+             <h3>Pelvic Tumor Segmentation from Multi-Modal MRI Using Three-Branch U-Net</h3>
+             <p>
+                 N. Nobnop,
+                 "Pelvic Tumor Segmentation from Multi-Modal MRI Using Three-Branch U-Net",
+                 <em>23rd International Joint Conference on Computer Science and Software Engineering (JCSSE 2026)</em>.
+             </p>
+            </div>
+            <div style="margin-top: 20px;">
+             <span style="color:#38bdf8; font-weight:600; background: rgba(56,189,248,0.1); padding: 6px 12px; border-radius: 6px; font-size: 13px;">
+                 In Progress
+             </span>
+            </div>
         </div>
 
     </div>
 </section>
 
-<!-- CONTACT -->
 <section id="contact" class="fade">
-<h1 class="section-title">Contact</h1>
-<p>Email: noppanon.derng@gmail.com</p>
-<p>GitHub: https://github.com/Derng-nn</p>
-<p>LinkedIn: https://www.linkedin.com/in/noppanon-nobnop-3358a336b/</p>
+<h2 class="section-title">Contact</h2>
+<p class="section-desc">Collaborations or opportunities</p>
+
+<ul class="contact-list">
+ <li><strong>Email:</strong> <a href="mailto:noppanon.derng@gmail.com">noppanon.derng@gmail.com</a></li>
+ <li><strong>GitHub:</strong> <a href="https://github.com/Derng-nn" target="_blank">github.com/Derng-nn</a></li>
+ <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/noppanon-nobnop-3358a336b/" target="_blank">linkedin.com/in/noppanon-nobnop</a></li>
+</ul>
 </section>
 
 <footer>
-© 2026 Noppanon Nobnop
+© 2026 Noppanon Nobnop. All rights reserved.
 </footer>
 
 <script>
+// ตั้งค่าจุดเริ่มทำงานของ Animation ให้เนียนตาขึ้น (เริ่มทำเมื่อ element โผล่มา 15%)
 const observer = new IntersectionObserver(entries => {
  entries.forEach(entry => {
   if(entry.isIntersecting){
    entry.target.classList.add('show');
   }
  });
-});
+}, { threshold: 0.15 });
 
 document.querySelectorAll('.fade').forEach(el => observer.observe(el));
 </script>
